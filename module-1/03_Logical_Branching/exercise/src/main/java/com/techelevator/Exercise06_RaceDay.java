@@ -24,7 +24,13 @@ public class Exercise06_RaceDay {
      * determineRaceBlock(30, true) ➔ 1
      */
     public int determineRaceBlock(int age, boolean isEarlyRegistration) {
-        return 0;
+        boolean isOver18 = age >= 18;
+        if (isEarlyRegistration && isOver18)
+            return 1;
+        else if (isOver18)
+            return 2;
+
+        return 3;
     }
 
     /*
@@ -49,7 +55,9 @@ public class Exercise06_RaceDay {
      * getBibNumber(30, 700, true) ➔ 1700
      */
     public int getBibNumber(int age, int registrationNumber, boolean isEarlyRegistration) {
-        return 0;
+        if (determineRaceBlock(age, isEarlyRegistration) == 1)
+            return registrationNumber +1000;
+        return registrationNumber;
     }
 
     /*
@@ -72,6 +80,9 @@ public class Exercise06_RaceDay {
      * getConfirmedBibNumber(30, 1001, true) ➔ 2001
      */
     public int getConfirmedBibNumber(int age, int registrationNumber, boolean isEarlyRegistration) {
-        return 0;
+        boolean isFull = registrationNumber> 1000;
+        if (!isEarlyRegistration && isFull)
+            return -1;
+        return getBibNumber(age,registrationNumber,isEarlyRegistration);
     }
 }
