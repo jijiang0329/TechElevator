@@ -32,7 +32,7 @@ public class Scratch {
         //The Ring,Everything Everywhere All At Once,Batman Begins
 
         String movies = scanner.nextLine();
-        String[] moviesArray = movies.split(" ");
+        String[] moviesArray = movies.split(",");
         for(int i = 0; i < moviesArray.length; i++){
             int num = Integer.parseInt(moviesArray[i]);
             System.out.println(num + " is a great movie, you have great taste!");
