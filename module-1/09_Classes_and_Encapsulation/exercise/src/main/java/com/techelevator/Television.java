@@ -28,14 +28,22 @@ public class Television {
     public void changeChannel(int newChannel) {
         if (isOn && newChannel>=3 && newChannel <= 18) {
             currentChannel = newChannel;
-        } else
-            currentChannel = 18;
+        }
     }
     public void channelUp() {
-        changeChannel(currentChannel + 1);
+        if (isOn) {
+            if (getCurrentChannel() < 18)
+                changeChannel(currentChannel + 1);
+            else
+                currentChannel =3;
+        }
     }
     public void channelDown() {
-        changeChannel(currentChannel - 1);
+        if (isOn) {
+            if (getCurrentChannel() >3)
+                changeChannel(currentChannel - 1);
+            else
+                currentChannel = 18;}
     }
     public void raiseVolume() {
         if (isOn && currentVolume>=0 && currentVolume < 10) {
