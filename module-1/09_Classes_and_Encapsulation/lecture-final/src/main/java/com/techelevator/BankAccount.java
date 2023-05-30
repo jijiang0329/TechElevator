@@ -33,6 +33,7 @@ public class BankAccount {
     //getter for the accountNumber
     //we can manipulate the data to only expose what we want
     public String getAccountNumber(){
+
         return "**********" + accountNumber.substring(accountNumber.length()-4);
     }
 

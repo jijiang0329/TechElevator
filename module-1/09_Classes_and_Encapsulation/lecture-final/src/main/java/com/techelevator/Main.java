@@ -1,6 +1,12 @@
 package com.techelevator;
 
+import java.math.BigDecimal;
+
 public class Main {
+
+    public Main() {
+        new Transaction();
+    }
 
     public static void main(String[] args) {
 
@@ -27,6 +33,13 @@ public class Main {
         System.out.println("End");
 
         //int customerAge = customer.age;
+
+        Transaction t = new Transaction(Transaction.WITHDRAWAL, BigDecimal.valueOf(1000));
+        Transaction t2 = new Transaction(Transaction.DEPOSIT, BigDecimal.valueOf(2000));
+
+        Transaction.addTransactions(t, t2);
+
+        System.exit(0);
     }
 
 }
