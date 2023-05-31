@@ -1,6 +1,6 @@
 package com.techelevator.avengers;
 
-public class Thor extends Avenger{
+public class Thor extends Avenger implements Flyable{
 
     private boolean worthy;
 
@@ -19,10 +19,11 @@ public class Thor extends Avenger{
         }
     }
 
-    @Override
-    public String toString(){
-        return getName();
+    public void fly(){
+        if(worthy){
+            System.out.println("I am flying with my hammer!");
+        } else {
+            System.out.println("I cannot lift my hammer. *Cries*");
+        }
     }
-
-
 }

@@ -5,7 +5,7 @@ public class Avenger {
     //class variables
     private String name;
     private String skill;
-    private int health;
+    private boolean flier;
 
     //constructor
   /*  public Avenger(){
@@ -15,6 +15,10 @@ public class Avenger {
     public Avenger(String name, String skill){
         this.name = name;
         this.skill = skill;
+    }
+
+    public boolean isFlier() {
+        return flier;
     }
 
     //getters and setters
@@ -34,23 +38,10 @@ public class Avenger {
         this.skill = skill;
     }
 
-    public int getHealth(){
-        return health;
-    }
-
     //behavior
     public void assemble(){
-        System.out.println("I am an Avenger and I can " + skill + "!");
+        System.out.println("I am an Avenger "+name+" and I can " + skill + "!");
     }
 
-    public int addToHealth(int boost){
-        health += boost;
-        return health;
-    }
-
-    public int deductFromHealth(int deduction){
-        health -= deduction;
-        return health;
-    }
 
 }

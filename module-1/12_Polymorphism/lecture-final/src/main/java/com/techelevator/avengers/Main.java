@@ -7,35 +7,26 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Thor thor = new Thor(false);
-        System.out.println("Our thor object is " + thor.toString());
-
-
-
-
-        thor.assemble();
-
-
-
-
+        Thor thor = new Thor(true);
         IronMan ironMan = new IronMan();
-        ironMan.assemble();
-
         SheHulk sheHulk = new SheHulk();
-        sheHulk.smash();
-        sheHulk.assemble();
-
         IncredibleHulk incredibleHulk = new IncredibleHulk();
-        incredibleHulk.smash();
-        incredibleHulk.assemble();
-
-        Object obj = new Object();
 
         List<Avenger> team = new ArrayList<>();
         team.add(ironMan);
         team.add(sheHulk);
         team.add(incredibleHulk);
-        Team superheros = new Team(team);
+        team.add(thor);
+
+        for(Avenger avenger : team){
+            avenger.assemble();
+
+            if(avenger instanceof Flyable){
+                Flyable flier = (Flyable) avenger;
+                flier.fly();
+            }
+
+        }
 
     }
 }
