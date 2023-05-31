@@ -1,8 +1,8 @@
 package com.techelevator.avengers;
 
-public class IronMan extends Avenger{
+import java.io.Serializable;
 
-    private static final int EXTRA_DAMAGE = 5;
+public class IronMan extends Avenger implements Flyable {
 
     private int durability;
 
@@ -24,19 +24,8 @@ public class IronMan extends Avenger{
         super.assemble();
     }
 
-
-    @Override
-    public int deductFromHealth(int deduction){
-
-        //if we are below 50 then shields are down and we take
-        //an additional 5 points of damage
-        super.deductFromHealth(deduction);
-        if(getHealth() < 50 ) {
-            super.deductFromHealth(EXTRA_DAMAGE);
-        }
-
-        return getHealth();
-
+    public void fly(){
+        System.out.println("I'm flying using jets!");
     }
 
 }
