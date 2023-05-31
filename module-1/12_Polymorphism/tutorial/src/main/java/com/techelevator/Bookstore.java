@@ -33,5 +33,12 @@ public class Bookstore {
         shoppingCart.add(airplane);
 
         System.out.println(shoppingCart.receipt());
+
+        Cafe myCoffee = new Cafe("Extra-large", "Dark Roast", new String[] {"Creme"}, 3.99);
+        Cafe myFriendsCoffee = new Cafe("Medium", "House Blend", new String[]{"Soy milk", "Sugar"}, 2.79);
+        shoppingCart.add(myCoffee);
+        shoppingCart.add(myFriendsCoffee);
+
+        System.out.println(shoppingCart.receipt());
     }
 }
