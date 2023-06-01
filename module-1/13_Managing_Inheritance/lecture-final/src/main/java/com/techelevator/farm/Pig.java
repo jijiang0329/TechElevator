@@ -10,6 +10,11 @@ public class Pig extends FarmAnimal implements Sellable {
         price = new BigDecimal("300.00");
     }
 
+    @Override
+    public final String getSound() {
+        return "Oink";
+    }
+
     public BigDecimal getPrice() {
         return price;
     }
