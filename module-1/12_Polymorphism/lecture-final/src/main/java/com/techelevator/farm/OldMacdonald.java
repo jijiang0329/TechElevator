@@ -3,6 +3,11 @@ package com.techelevator.farm;
 public class OldMacdonald {
 	public static void main(String[] args) {
 
+
+		Chicken chicken = new Chicken();
+		chicken.layEgg();
+
+
 		Singable[] farmAnimals = new Singable[] { new Cow(), new Chicken(), new Tractor(), new Pig() };
 
 		for (Singable animal : farmAnimals) {
