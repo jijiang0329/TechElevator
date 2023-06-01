@@ -17,4 +17,8 @@ public class FarmAnimal implements Singable{
 		return sound;
 	}
 
+	public boolean liveInBarn(){
+		return true;
+	}
+
 }
