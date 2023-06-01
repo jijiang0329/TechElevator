@@ -13,7 +13,7 @@ class PaintCalculator {
     public static void main(String[] args) {
 
         // Step One:
-        //List<Wall> walls = new ArrayList<Wall>();
+        List<Wall> walls = new ArrayList<Wall>();
 
         while (true) {
             System.out.println("[1] Add a wall");
@@ -46,7 +46,7 @@ class PaintCalculator {
                     int length = Integer.parseInt(userInput.nextLine());
 
                     // Step Two:
-                    //newWall = new RectangleWall(name, color, height, length);
+                    RectangleWall newWall = new RectangleWall(name, color, height, length);
                 } else if (shapeChoice.equals("2")) {
                     System.out.println("Enter wall side length >>> ");
                     int sideLength = Integer.parseInt(userInput.nextLine());
