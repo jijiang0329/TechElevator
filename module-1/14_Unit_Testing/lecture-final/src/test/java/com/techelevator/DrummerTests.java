@@ -1,17 +1,21 @@
 package com.techelevator;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class DrummerTests {
 
+    private Drummer drummer;
+
+    @Before
+    public void setup(){
+        drummer = new Drummer("drummer");
+    }
 
     //Step 1 - use the @Test annotation to indicate our method is going to be a test
     @Test
     public void test_drummer_name(){
-
-        //Arrange - we declare an instance of the class we want to test
-        Drummer drummer = new Drummer("drummer");
 
         //Act - we call the method we want to test and store the result
         String result = drummer.getName();
@@ -37,9 +41,6 @@ public class DrummerTests {
     @Test
     public void test_drummer_instrument(){
 
-        //Arrange - we declare an instance of the class we want to test
-        Drummer drummer = new Drummer("drummer");
-
         //Act - we call the method we want to test and store the result
         String result = drummer.getInstrument();
 
@@ -52,7 +53,6 @@ public class DrummerTests {
 
         //Arrange - we declare an instance of the class we want to test
         //          and configure it with any variables we want
-        Drummer drummer = new Drummer("drummer");
         drummer.setNumYearsExperience(15);
 
         //Act - We call the method that we want to test
@@ -68,7 +68,6 @@ public class DrummerTests {
 
         //Arrange - we declare an instance of the class we want to test
         //          and configure it with any variables we want
-        Drummer drummer = new Drummer("drummer");
         drummer.setNumYearsExperience(10);
 
         //Act - We call the method that we want to test
