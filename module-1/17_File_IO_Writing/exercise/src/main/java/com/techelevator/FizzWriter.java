@@ -15,7 +15,7 @@ public class FizzWriter {
 	public void run() {
 		/* Your code goes here */
 
-
+		mycode
 	}
 
 }
