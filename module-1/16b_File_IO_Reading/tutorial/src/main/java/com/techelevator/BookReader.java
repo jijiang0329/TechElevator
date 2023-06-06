@@ -30,13 +30,23 @@ public class BookReader {
         File bookFile = new File(filePath);
 
         int lineCount = 0;
+        boolean inBookText = false;
 
         try (Scanner fileInput = new Scanner(bookFile)) {
             //loop starts
             while (fileInput.hasNextLine()) {
                 String lineOfText = fileInput.nextLine();
+                if (lineOfText.startsWith(BEGIN_MARKER)) {
+                    inBookText = true;
+                    continue;  // No need to process this line...go to the next
+                }
+                if (inBookText) {
                 lineCount++;
                 System.out.println(lineCount + ": " + lineOfText);
+                }
+                if (lineOfText.startsWith(END_MARKER)) {
+                    break;  // Once the program finds the end, break out of the loop.
+                }
             }
         } catch (FileNotFoundException e) {
             System.out.println("The file was not found: " + bookFile.getAbsolutePath());

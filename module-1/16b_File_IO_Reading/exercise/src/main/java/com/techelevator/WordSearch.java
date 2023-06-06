@@ -41,8 +41,7 @@ public class WordSearch {
 				}
 				lineCount++;
 			}
-		}
-		catch(FileNotFoundException ex){
+		} catch(FileNotFoundException ex) {
 			System.out.println("Something is wrong");
 		}
 
