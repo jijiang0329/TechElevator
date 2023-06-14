@@ -170,11 +170,30 @@ FROM state
 ORDER BY type;
 
 
+
+SELECT city_name as place_name
+FROM city
+INTERSECT
+SELECT state_name  as place_name
+FROM state
+
+
+
 -- MovieDB
 -- After creating the MovieDB database and running the setup script, make sure it is selected in pgAdmin and confirm it is working correctly by writing queries to retrieve...
 
 -- The names of all the movie genres
-
+SELECT *
+FROM genre;
 
 -- The titles of all the Comedy movies
+
+SELECT m.title
+FROM genre
+JOIN movie_genre mg
+	ON genre.genre_id = mg.genre_id
+JOIN movie m
+	ON mg.movie_id = m.movie_id
+WHERE genre_name = 'Comedy';
+
 
