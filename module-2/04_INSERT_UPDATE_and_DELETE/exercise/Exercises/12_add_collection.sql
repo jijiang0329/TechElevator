@@ -6,5 +6,5 @@ select person_id from person where person_name = 'Bill Murray';
 
 update movie
 set collection_id = (select collection_id from collection where collection_name = 'Bill Murray Collection')
-where movie_id in (select movie_id from movie_actor join person on person_id = actor_id where actor_id = (select person_id from person where person_name = 'Bill Murray'));
+where movie_id in (select movie_id from movie_actor where actor_id = (select person_id from person where person_name = 'Bill Murray'));
 
