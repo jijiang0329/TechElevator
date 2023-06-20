@@ -26,12 +26,12 @@ CREATE TABLE art(
 	art_id serial PRIMARY KEY,
 	title varchar(100) NOT NULL,
 	purchase_date date NOT NULL,
-	purchase_price int NOT NULL, -- don't forget about money
+	purchase_price money NOT NULL, -- don't forget about money
 	artist_id int NOT NULL REFERENCES person(person_id),
 	
 	--constraints
 	--CONSTRAINT fk_person_art FOREIGN KEY(artist_id) REFERENCES person(person_id),
-	CONSTRAINT chk_price CHECK( purchase_price >= 0)
+	CONSTRAINT chk_price CHECK( purchase_price::numeric >= 0)
 );
 
 CREATE TABLE person_purchase(
