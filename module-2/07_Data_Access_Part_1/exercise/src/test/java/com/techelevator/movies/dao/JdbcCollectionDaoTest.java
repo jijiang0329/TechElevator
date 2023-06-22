@@ -53,7 +53,7 @@ public class JdbcCollectionDaoTest extends BaseDaoTest {
     @Test
     public void getCollectionByName_exact_match_returns_correct_Collections() {
 
-        List<Collection> collections = sut.getCollectionsByName("the avengers collection",
+        List<Collection> collections = sut.getCollectionsByName("The Avengers Collection",
                 false);
         assertNotNull("getCollectionsByName unexpectedly returned null", collections);
         assertNotEquals("getCollectionsByName unexpectedly returned an empty list of collections",
@@ -67,7 +67,7 @@ public class JdbcCollectionDaoTest extends BaseDaoTest {
     @Test
     public void getCollectionByName_wildcard_match_returns_correct_Collections() {
 
-        List<Collection> collections = sut.getCollectionsByName("e avengers c",
+        List<Collection> collections = sut.getCollectionsByName("e Avengers C",
                 true);
         assertNotNull("getCollectionsByName unexpectedly returned null", collections);
         assertNotEquals("getCollectionsByName unexpectedly returned an empty list of collections",

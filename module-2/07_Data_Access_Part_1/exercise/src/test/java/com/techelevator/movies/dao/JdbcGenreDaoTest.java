@@ -81,7 +81,7 @@ public class JdbcGenreDaoTest extends BaseDaoTest {
     @Test
     public void getGenresByName_single_character_match_with_wildcard_returns_correct_genres() {
 
-        List<Genre> genres = sut.getGenresByName("Y",true);
+        List<Genre> genres = sut.getGenresByName("y",true);
         assertNotNull("getGenresByName unexpectedly returned null", genres);
         assertEquals("getGenresByName did not return the correct number of genres",
                 6, genres.size());

@@ -64,7 +64,7 @@ public class JdbcMovieDaoTest extends BaseDaoTest {
     @Test
     public void getMoviesByTitle_exact_match_returns_correct_movies() {
 
-        List<Movie> movies = sut.getMoviesByTitle("Once upon a time in America",
+        List<Movie> movies = sut.getMoviesByTitle("Once Upon a Time in America",
                 false);
         assertNotNull("getMoviesByTitle unexpectedly returned null", movies);
         assertNotEquals("getMoviesByTitle unexpectedly returned an empty list of movies",
@@ -78,7 +78,7 @@ public class JdbcMovieDaoTest extends BaseDaoTest {
     @Test
     public void getMoviesByTitle_wildcard_match_returns_correct_movies() {
 
-        List<Movie> movies = sut.getMoviesByTitle("upon a time",
+        List<Movie> movies = sut.getMoviesByTitle("Upon a Time",
                 true);
         assertNotNull("getMoviesByTitle unexpectedly returned null", movies);
         assertNotEquals("getMoviesByTitle unexpectedly returned an empty list of movies",

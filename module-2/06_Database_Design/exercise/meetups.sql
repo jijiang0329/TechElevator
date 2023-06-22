@@ -14,8 +14,6 @@ CREATE TABLE member (
 	isFlag boolean 
 	
 	--create the constraints (primary keys, foreign keys)
-	
-	
 );
 
 CREATE TABLE groups (
