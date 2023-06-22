@@ -44,7 +44,7 @@ public class JdbcGenreDao implements GenreDao {
         List<Genre> genres = new ArrayList<>();
 
         if(useWildCard) {
-            String sql = "SELECT * FROM genre WHERE genre_name LIKE ?;";
+            String sql = "SELECT * FROM genre WHERE genre_name ILIKE ?;";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + name + "%");
             while (results.next()) {
                 genres.add(mapRowToGenre(results));

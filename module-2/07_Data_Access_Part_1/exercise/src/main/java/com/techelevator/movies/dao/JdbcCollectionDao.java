@@ -44,7 +44,7 @@ public class JdbcCollectionDao implements CollectionDao{
         List<Collection> collections = new ArrayList<>();
 
         if(useWildCard) {
-            String sql = "SELECT * FROM collection WHERE collection_name LIKE ?;";
+            String sql = "SELECT * FROM collection WHERE collection_name ILIKE ?;";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%" + name + "%");
             while (results.next()) {
                 collections.add(mapRowToCollection(results));
