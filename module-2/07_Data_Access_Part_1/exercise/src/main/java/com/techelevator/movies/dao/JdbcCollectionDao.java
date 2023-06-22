@@ -50,7 +50,7 @@ public class JdbcCollectionDao implements CollectionDao{
                 collections.add(mapRowToCollection(results));
             }
         } else {
-            String sql = "SELECT * FROM collection WHERE collection_name = ?;";
+            String sql = "SELECT * FROM collection WHERE collection_name ILIKE ?;";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, name);
             while (results.next()) {
                 collections.add(mapRowToCollection(results));
