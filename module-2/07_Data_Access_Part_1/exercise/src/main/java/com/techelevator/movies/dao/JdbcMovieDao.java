@@ -59,7 +59,7 @@ public class JdbcMovieDao implements MovieDao {
                 movies.add(mapRowToMovie(results));
             }
         } else {
-            String sql = "SELECT * FROM movie WHERE title = ?;";
+            String sql = "SELECT * FROM movie WHERE title ILIKE ?;";
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, title);
             while (results.next()) {
                 movies.add(mapRowToMovie(results));
