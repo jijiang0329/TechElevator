@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import com.techelevator.projects.model.Department;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -29,9 +30,15 @@ public class JdbcProjectDao implements ProjectDao {
 		String sql = PROJECT_SELECT +
 				" WHERE p.project_id=?";
 
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
-		if (results.next()) {
-			project = mapRowToProject(results);
+		try {
+			SqlRowSet results = jdbcTemplate.queryForRowSet(sql, projectId);
+			if (results.next()) {
+				project = mapRowToProject(results);
+			}
+		} catch (CannotGetJdbcConnectionException e) {
+			throw new DaoException("Not able to get");
+		} catch (Exception ex){
+			throw new DaoException("Error getting record", ex);
 		}
 
 		return project;
@@ -42,10 +49,16 @@ public class JdbcProjectDao implements ProjectDao {
 		List<Project> allProjects = new ArrayList<>();
 		String sql = PROJECT_SELECT;
 
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-		while (results.next()) {
-			Project projectResult = mapRowToProject(results);
-			allProjects.add(projectResult);
+		try {
+			SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+			while (results.next()) {
+				Project projectResult = mapRowToProject(results);
+				allProjects.add(projectResult);
+			}
+		} catch (CannotGetJdbcConnectionException e) {
+			throw new DaoException("Not able to get");
+		} catch (Exception ex){
+			throw new DaoException("Error getting record", ex);
 		}
 
 		return allProjects;
@@ -53,26 +66,73 @@ public class JdbcProjectDao implements ProjectDao {
 
 	@Override
 	public Project createProject(Project newProject) {
-		throw new DaoException("createProject() not implemented");
+		Project project = null;
+		String sql = "INSERT INTO project(name, from_date, to_date)\n" +
+				"VALUES(?,?,?) RETURNING project_id;";
+
+		try {
+			int newProjectID = jdbcTemplate.queryForObject(sql, int.class, newProject.getName(),
+					newProject.getFromDate(), newProject.getToDate());
+			project = getProjectById(newProjectID);
+		} catch(Exception ex){
+			throw new DaoException("Unable to create new department", ex);
+		}
+
+		return project;
 	}
 	
 	@Override
 	public void linkProjectEmployee(int projectId, int employeeId) {
-		throw new DaoException("linkProjectEmployee() not implemented");
+		String sql = "INSERT INTO project_employee(project_id, employee_id) VALUES(?,?)";
+
+		try{
+			jdbcTemplate.update(sql, projectId, employeeId);
+		} catch(Exception ex){
+			throw new DaoException ("Error linking project", ex);
+		}
 	}
 
 	@Override
 	public void unlinkProjectEmployee(int projectId, int employeeId) {
-		throw new DaoException("unlinkProjectEmployee() not implemented");
+		String sql = "DELETE FROM project_employee where project_id = ? AND employee_id = ?";
+
+		try{
+			jdbcTemplate.update(sql, projectId, employeeId);
+		} catch(Exception ex){
+			throw new DaoException ("Error unlinking project and employee", ex);
+		}
 	}
 
 	@Override
 	public Project updateProject(Project project) {
-		throw new DaoException("updateProject() not implemented");
+		String sql = "UPDATE project\n" +
+				"SET name = ?," +
+				"from_date = ?," +
+				"to_date = ?" +
+				"WHERE project_id = ?;";
+
+		try {
+			jdbcTemplate.update(sql, project.getName(), project.getFromDate(), project.getToDate(), project.getId());
+		} catch (CannotGetJdbcConnectionException e) {
+			throw new DaoException("Not able to update");
+		} catch(Exception ex){
+			throw new DaoException("Error updating record", ex);
+		}
+
+		return getProjectById(project.getId());
 	}
 	@Override
 	public int deleteProjectById(int projectId) {
-		throw new DaoException("deleteProjectById() not implemented");
+		int numRowsDeleted = 0;
+		String sql = "DELETE FROM project_employee WHERE project_id = ?";
+		String sql2 = "DELETE FROM project WHERE project_id = ?";
+		try {
+			jdbcTemplate.update(sql, projectId);
+			numRowsDeleted = jdbcTemplate.update(sql2, projectId);
+		} catch(Exception ex) {
+			throw new DaoException("Error deleting record");
+		}
+		return numRowsDeleted;
 	}
 	
 	private Project mapRowToProject(SqlRowSet results) {
