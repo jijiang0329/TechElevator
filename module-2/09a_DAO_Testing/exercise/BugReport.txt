@@ -1,34 +1,34 @@
 Bug 1
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: updated_timesheet_has_expected_values_when_retrieved()
 
-Expected output:
+Expected output: updatedTimesheet
 
-Actual output:
+Actual output: Data violation exception 
 
-How did you fix this bug?
+How did you fix this bug? add billable column in sql
 
 
 Bug 2
 -----
-Test that demonstrates problem:
+Test that demonstrates problem:public void getTimesheetsByEmployeeId_returns_list_of_all_timesheets_for_employee()
 
-Expected output:
+Expected output: 2
 
-Actual output:
+Actual output: 1
 
-How did you fix this bug?
+How did you fix this bug? change the if in try-catch clause to a while loop
 
 
 Bug 3
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: getTimesheetsByProjectId_returns_list_of_all_timesheets_for_project()
 
-Expected output:
+Expected output:3
 
-Actual output:
+Actual output:2
 
-How did you fix this bug?
+How did you fix this bug? Changed where= employee_id to where = project_id in the sql
 
 
 Bug 4
