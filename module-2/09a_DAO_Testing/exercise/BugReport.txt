@@ -4,7 +4,7 @@ Test that demonstrates problem: updated_timesheet_has_expected_values_when_retri
 
 Expected output: updatedTimesheet
 
-Actual output: Data violation exception 
+Actual output: Data violation exception
 
 How did you fix this bug? add billable column in sql
 
@@ -28,16 +28,16 @@ Expected output:3
 
 Actual output:2
 
-How did you fix this bug? Changed where= employee_id to where = project_id in the sql
+How did you fix this bug? Changed where = employee_id to where = project_id in the sql
 
 
 Bug 4
 -----
-Test that demonstrates problem:
+Test that demonstrates problem: public void getBillableHours_returns_correct_total()
 
-Expected output:
+Expected output: 0.0
 
-Actual output:
+Actual output: 2.0
 
-How did you fix this bug?
+How did you fix this bug? Added billable = true to the where clause in sql
 

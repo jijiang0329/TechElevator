@@ -138,11 +138,12 @@ public class JdbcTimesheetDao implements TimesheetDao {
         double billableHours = 0;
         String sql = "SELECT SUM(hours_worked) AS billable_hours " +
                 "FROM timesheet " +
-                "WHERE employee_id = ? AND project_id = ?";
+                "WHERE employee_id = ? AND project_id = ? AND billable = true";
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, employeeId, projectId);
             if (results.next()) {
-                billableHours = results.getDouble("billable_hours");
+
+                    billableHours = results.getDouble("billable_hours");
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
