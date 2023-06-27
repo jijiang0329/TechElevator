@@ -17,18 +17,67 @@ public class AuctionService {
 
 
     public Auction add(Auction newAuction) {
-        // place code here
-        return null;
+
+        //We'll declare the http headers and configure them to indicate we are sending JSON
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        //We'll declare a new Http request indicating that it holds a reservation and we will pass
+        //our reservation object and the headers into its constructor
+        HttpEntity<Auction> entity = new HttpEntity<>(newAuction, headers);
+        Auction result = null;
+
+        try {
+            result = restTemplate.postForObject(API_BASE_URL, entity, Auction.class);
+        }
+        catch(RestClientResponseException ex){ //This is for when we find the server but it sends an error back (no permission, bad data, etc.)
+            BasicLogger.log(ex.getRawStatusCode() + ":" + ex.getStatusText());
+        }
+        catch(ResourceAccessException ex){ //This is for when we cannot access the external server we are calling
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return result;
     }
 
     public boolean update(Auction updatedAuction) {
-        // place code here
-        return false;
+        String url = API_BASE_URL + updatedAuction.getId();
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<Auction> entity = new HttpEntity<>(updatedAuction, headers);
+
+        boolean isSuccsess = false;
+        try {
+            restTemplate.put(url, entity);
+            isSuccsess = true;
+        }
+        catch(RestClientResponseException ex){ //This is for when we find the server but it sends an error back (no permission, bad data, etc.)
+            BasicLogger.log(ex.getRawStatusCode() + ":" + ex.getStatusText());
+        }
+        catch(ResourceAccessException ex){ //This is for when we cannot access the external server we are calling
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return isSuccsess;
     }
 
     public boolean delete(int auctionId) {
-        // place code here
-        return false;
+        String url = API_BASE_URL + auctionId;
+
+        boolean isSuccsess = false;
+        try {
+            restTemplate.delete(url);
+            isSuccsess = true;
+        }
+        catch(RestClientResponseException ex){ //This is for when we find the server but it sends an error back (no permission, bad data, etc.)
+            BasicLogger.log(ex.getRawStatusCode() + ":" + ex.getStatusText());
+        }
+        catch(ResourceAccessException ex){ //This is for when we cannot access the external server we are calling
+            BasicLogger.log(ex.getMessage());
+        }
+
+        return isSuccsess;
     }
 
     public Auction[] getAllAuctions() {
