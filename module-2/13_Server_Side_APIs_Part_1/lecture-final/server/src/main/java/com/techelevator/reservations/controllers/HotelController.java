@@ -27,7 +27,8 @@ public class HotelController {
      * @return a list of all hotels in the system
      */
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
-    public List<Hotel> list(@RequestParam(required=false, defaultValue="", value="stateToSearch") String state, @RequestParam(required=false, defaultValue="Columbus") String city) {
+    public List<Hotel> list(@RequestParam(required=false, defaultValue="", value="stateToSearch") String state,
+                            @RequestParam(required=false, defaultValue="Columbus") String city) {
         return hotelDao.getHotelsByStateAndCity(state, city);
     }
 

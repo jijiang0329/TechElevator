@@ -17,4 +17,5 @@ public interface AuctionDao {
     List<Auction> getAuctionsByMaxBid(double maxBid);
 
     List<Auction> getAuctionsByTitleAndMaxBid(String searchTerm, double maxBid);
+    List<Auction> getAuctionsByTitleAndCurrentBid(String searchTerm, double currentBid_lte);
 }

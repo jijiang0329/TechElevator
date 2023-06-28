@@ -73,6 +73,30 @@ public class MemoryAuctionDao implements AuctionDao {
         }
         return matchAuctions;
     }
+    @Override
+    public List<Auction> getAuctionsByTitleAndCurrentBid(String searchTerm, double currentBid_lte) {
+        List<Auction> matchAuctions = new ArrayList<>();
+
+        if(searchTerm.length()==0 && currentBid_lte ==0) return auctions;
+
+        for (Auction auction : auctions) {
+            if(searchTerm.length() != 0 && currentBid_lte != 0) {
+                if (auction.getTitle().toLowerCase().contains(searchTerm.toLowerCase()) &&
+                    auction.getCurrentBid() <= currentBid_lte) {
+                    matchAuctions.add(auction);
+                }
+            } else if (searchTerm.length() != 0){
+                if(auction.getTitle().toLowerCase().contains(searchTerm.toLowerCase()))
+                    matchAuctions.add(auction);
+            } else {
+                if(auction.getCurrentBid() <= currentBid_lte)
+                    matchAuctions.add(auction);
+            }
+        }
+
+
+        return matchAuctions;
+    }
 
     private void setAuctions() {
         auctions.add(new Auction(1,
