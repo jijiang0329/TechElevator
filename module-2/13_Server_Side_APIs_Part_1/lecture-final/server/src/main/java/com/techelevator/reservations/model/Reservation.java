@@ -1,18 +1,26 @@
-package com.techelevator.hotels.model;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
+package com.techelevator.reservations.model;
 
 public class Reservation {
 
     private int id;
     private int hotelId;
     private String fullName;
-    // Use LocalDate for dates but storing as a string to keep this example simple
     private String checkinDate;
     private String checkoutDate;
+    private int guests;
 
-    @JsonProperty("guests")
-    private int numOfGuests;
+    public Reservation() {
+
+    }
+
+    public Reservation(int id, int hotelId, String fullName, String checkinDate, String checkoutDate, int guests) {
+        this.id = id;
+        this.hotelId = hotelId;
+        this.fullName = fullName;
+        this.checkinDate = checkinDate;
+        this.checkoutDate = checkoutDate;
+        this.guests = guests;
+    }
 
     public int getId() {
         return id;
@@ -54,12 +62,12 @@ public class Reservation {
         this.checkoutDate = checkoutDate;
     }
 
-    public int getNumOfGuests() {
-        return numOfGuests;
+    public int getGuests() {
+        return guests;
     }
 
-    public void setNumOfGuests(int numOfGuests) {
-        this.numOfGuests = numOfGuests;
+    public void setGuests(int guests) {
+        this.guests = guests;
     }
 
     @Override
@@ -72,6 +80,6 @@ public class Reservation {
                 "\n Full Name: " + fullName +
                 "\n Checkin Date: " + checkinDate +
                 "\n Checkout Date: " + checkoutDate +
-                "\n Guests: " + numOfGuests;
+                "\n Guests: " + guests;
     }
 }
