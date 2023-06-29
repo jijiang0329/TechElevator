@@ -27,7 +27,10 @@ public class HotelController {
      * @return a list of all hotels in the system
      */
     @RequestMapping(path = "/hotels", method = RequestMethod.GET)
-    public List<Hotel> list(@RequestParam(required=false, defaultValue="", value="stateToSearch") String state, @RequestParam(required=false, defaultValue="Columbus") String city) {
+    public List<Hotel> list(@RequestParam(required=false, defaultValue="") String state,
+                            @RequestParam(required=false, defaultValue="") String city,
+                            @RequestParam(defaultValue="0") double doubleValue
+    ) {
         return hotelDao.getHotelsByStateAndCity(state, city);
     }
 
@@ -55,6 +58,12 @@ public class HotelController {
     @RequestMapping(path="/reservations/{reservationId}", method = RequestMethod.GET)
     public Reservation getReservationById(@PathVariable int reservationId){
         return reservationDao.getReservationById(reservationId);
+    }
+
+
+    @RequestMapping(path="/hotels/{id}/reservations", method = RequestMethod.GET)
+    public List<Reservation> getReservationsByHotel(@PathVariable int id){
+        return reservationDao.getReservationsByHotel(id);
     }
 
 
