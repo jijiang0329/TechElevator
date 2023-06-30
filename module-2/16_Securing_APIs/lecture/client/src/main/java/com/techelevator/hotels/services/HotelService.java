@@ -26,7 +26,9 @@ public class HotelService {
         Reservation returnedReservation = null;
 
         //TODO: Add implementation
-        BasicLogger.log("HotelService.addReservation() has not been implemented");
+        String url = API_BASE_URL + "reservations";
+        HttpEntity entity = makeReservationEntity(newReservation);
+        returnedReservation = restTemplate.postForObject(url, entity, Reservation.class);
 
         return returnedReservation;
     }
