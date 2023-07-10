@@ -1,0 +1,58 @@
+/*
+    To select all elements
+    of a specific tag, just
+    list the tag name and the
+    styling
+*/
+h1 {
+    color:blue;
+    font-size: 45px;
+}
+
+/*
+    If we want to get 
+    something uniquely
+    by its id, use #
+    followed by id name
+*/
+#firstTitle {
+    color: rgb(143, 143, 184)
+}
+#subTitle{
+    color: red;
+}
+/*
+If we want to get someting
+by its class, we use 
+a . followed by the class name
+*/
+.greenTitle{
+    color: green;
+}
+
+a {
+    margin:10px;
+}
+nav {
+    text-align:center;
+    background-color: lightblue;
+}
+
+img {
+    width: 110px;
+    /*opacity: 50%; */
+}
+
+section {
+    background-color: burlywood;
+    border-radius: 5px;
+    text-align:center;
+}
+
+h3{
+    text-decoration: underline;
+}
+h4{
+    font-style: italic;
+    font-weight: bold;
+}
