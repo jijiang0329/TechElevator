@@ -1,0 +1,33 @@
+h1 {
+    color:blueviolet;
+}
+
+#firsTitle {
+    color: burlywood;
+}
+
+a {
+    margin: 10px;
+}
+nav {
+    text-align: center;
+    background-color: cadetblue;
+}
+img {
+    width:110px;
+}
+
+section {
+    background-color: burlywood;
+    border-radius: 5px;
+    text-align: center;
+}
+
+h3 {
+    text-decoration: underline;
+}
+
+h4 {
+    font-style: italic;
+    font-weight: bold;
+}
