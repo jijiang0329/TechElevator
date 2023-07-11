@@ -1,0 +1,127 @@
+/*
+    The most specific selector takes precedence,
+    if there is a tie then it is the most 
+    recently read style that wins
+*/
+
+
+/*
+Sometimes the body doesn't take up the full
+screen size and so to force it to do so
+we can assign 100vw (view width) and 
+100 vh (view height)
+
+*/
+body{
+    width: 100vw;
+    height:100vh;
+    background-color: #d4dddcb7
+}
+/*
+We can comma separate selectors to apply
+styling to multiple elements
+*/
+h1,blockquote{
+   text-align: center; 
+}
+
+/*
+We can select elements based on their path
+
+body #movie-posters-list div img
+#movie-posters-list div img
+#movie-posters-list .movie-poster img
+*/
+#movie-posters-list img{
+    width:150px;
+    height:225px;
+}
+
+/*
+To select something by id, use the #
+*/
+#movie-posters-list{
+    text-align: center;
+}
+
+/*
+To select something by class, use .
+*/
+.movie-poster{
+    display:inline-block;
+    margin: 5px;
+    padding:15px;
+    background-color: darkgray;
+}
+.marvel{
+    background-color:red;
+}
+.dc{
+    background-color: black;
+}
+
+table{
+    /*
+    For border, specify the width of the border,
+    what style (solid, dashed, etc.), and then the color
+    */
+    border: 1px solid black;
+    margin-top: 15px;
+  /*  margin: 15px 0px 0px 0px; */
+}
+
+thead tr {
+    background-color: lightgreen;
+
+}
+tbody tr td{
+    padding: 5px;
+}
+
+tbody tr:nth-child(odd){
+    background-color: white;
+}
+thead tr th:nth-child(1){
+    width: 15%;
+}
+thead tr th:nth-child(2){
+    width: 10%;
+}
+thead tr th{
+    text-align: left;
+}
+tbody tr:hover{
+    background-color:lightblue;
+}
+
+#greenLantern{
+    width: 100px;
+    /*if we want to center something*/
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    /*Normal*/
+   /* position: static; */
+
+   /*Relative - from where you were as static*/
+  /* position:relative;
+   left: 200px;
+   top:100px; */
+
+   /*Absolute - specific place on page*/
+   /*position:absolute;
+   left: 200px;
+   top:200px;*/
+
+   /*Fixed - specific to the browser, follows scroll*/
+   position: fixed;
+   right:200px;
+   bottom:200px;
+}
+
+a:visited{
+    color:green;
+}
+
+
