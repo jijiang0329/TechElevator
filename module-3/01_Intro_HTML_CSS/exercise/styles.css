@@ -1,0 +1,44 @@
+h1 {
+    color: gold;
+    text-align: center;
+}
+
+img {
+    width: 400px;
+}
+
+nav {
+    text-align: center;
+    background-color: honeydew;
+}
+body {
+    color: lightgrey;
+}
+
+section {
+    background-color: lavender;
+    border-radius: 5px;
+    text-align: center;
+}
+
+a {
+    margin: 10px;
+}
+
+h2,
+h3 {
+    text-decoration: underline;
+}
+
+h4 {
+    font-style: italic;
+    font-weight: bold;
+}
+
+table {
+    text-align: center;
+}
+
+#facts-section {
+    text-overflow: inherit;
+}
