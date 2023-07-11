@@ -9,10 +9,10 @@ img {
 
 nav {
     text-align: center;
-    background-color: honeydew;
+    background-color: rgb(245, 248, 250);
 }
 body {
-    color: lightgrey;
+    background-color: lightgrey;
 }
 
 section {
@@ -41,4 +41,14 @@ table {
 
 #facts-section {
     text-overflow: inherit;
+}
+#quotes-section {
+    font-style: italic;
+}
+#links-section {
+    text-decoration: magenta;
+}
+
+form {
+    background-color: lightskyblue;
 }
