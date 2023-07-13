@@ -1,0 +1,68 @@
+body{
+    width:95vw;
+    height: 95vh;
+    
+    /*specify the parent container by saying
+    display:flex - all the direct children will
+    then become flex items, and the parent container
+    will become a flexbox*/
+    display:flex; /*by default, it's a row*/
+    flex-direction: row;
+
+    /*when the flex-direction is row,
+     justify content will manage the horizontal
+      alignment*/
+      /*when the flex-direction is column,
+     justify content will manage the vertical
+      alignment*/
+    justify-content: flex-start; /*flex-start, center, flex-end, space-between, space-around,space-evenly*/
+
+    /*when the flex-direction is row,
+     align-items will manage the vertical
+      alignment*/
+      /*when the flex-direction is column,
+     align-items will manage the horizontal
+      alignment*/
+    align-items: flex-start; 
+    flex-wrap:nowrap;
+    gap:20px;
+}
+
+
+div {
+   /* flex-grow: 1; */
+    /*flex-shrink: 1;*/
+    width:100px;
+    height:100px; 
+    text-align:center;
+    font-size: 50px;
+}
+
+#div1 {
+    /*flex-grow: 1.5;*/
+    /*flex-shrink:5;*/
+    flex-basis: 60%; /*the initial size*/
+    background-color: blue;
+    order:4;
+   
+}
+
+#div2 {
+    background-color: red;
+    order:300;
+}
+
+#div3 {
+    background-color: yellow;
+    order:2;
+}
+
+#div4 {
+    background-color: green;
+    order:-50;
+}
+
+#div5 {
+    background-color: purple;
+    order:-10;
+}
