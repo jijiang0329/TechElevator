@@ -1,21 +1,35 @@
+
+body {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 2fr 1fr;
+    grid-template-areas: "block1 block2 block3" 
+                        "block1 anyname block-5";
+}
+
+
 #block1{
     background-color:blue;
+    grid-area: block1;
 }
 
 #block2{
     background-color:red;
+    grid-area: block2;
 }
 
 #block3{
     background-color:yellow;
+    grid-area: block3;
 }
 
 #block4{
     background-color:purple;
+    grid-area: anyname;
 }
 
 #block5{
     background-color:gray;
+    grid-area: block-5;
 }
 
 /****/

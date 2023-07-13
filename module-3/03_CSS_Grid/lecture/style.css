@@ -1,5 +1,32 @@
 
+header {
+    grid-area: header;
 
+}
+#menu-nav {
+    grid-area: nav;
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2 fr 1fr;
+    
+    grid-template-areas: "header header header"
+                         "nav main aside"
+                         "footer footer footer";
+}
 
 /***** enter grid CSS above this line *****/
 
@@ -26,6 +53,8 @@ body {
     padding: 0.5rem;
 }
 
+
+dea
 header {
     padding: 0 10px;
     text-align: center;
