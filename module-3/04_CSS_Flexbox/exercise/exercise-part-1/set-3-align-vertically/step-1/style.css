@@ -10,8 +10,21 @@ body {
 }
 
 .box {
+  
   padding: 40px 55px;
   background-color: #00AFEF;
   color: #fff;
   border: solid 1px #777;
 }
+
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.box {
+  height: 500px;
+}
+
+
