@@ -225,3 +225,21 @@ function stringFunctions(value) {
         - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
     */
 }
+
+function createObject(){
+
+  /*
+  const obj = {
+    firstName: "Christopher",
+    age: 38,
+    occupation: "software developer"
+  }; */
+
+  const obj = {};
+  obj.firstName = "Christopher"
+  obj.age = 38;
+  obj.lastName = "Guarnera";
+
+  return obj;
+
+}
