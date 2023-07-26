@@ -12,7 +12,9 @@
   </div>
 
 <!-- to conditionally apply css classes use v-bind:class -->
-  <div class="review" v-bind:class="{favorited: review.favorited}" v-for="review in reviews" v-bind:key="review.id">
+  <div class="review" v-bind:class="{favorited: review.favorited === true}" 
+        v-for="review in reviews" 
+        v-bind:key="review.id">
       <h4>{{review.reviewer}}</h4>
       <div class="rating">
           <img v-bind:title="review.rating + ' Stars'" src="../assets/star.png" class="ratingStar"
