@@ -1,0 +1,18 @@
+form>div>label{
+    width:100px;
+    margin-right: 10px;
+    display:inline-block;
+    text-align: left;
+}
+
+input, select {
+    width:150px;
+}
+
+#btnCreate{
+    margin-top: 15px;
+}
+
+h1, form {
+    text-align:center;
+}
