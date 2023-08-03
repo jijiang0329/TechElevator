@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import topicService from "../services/TopicService";
+import TopicService from "../services/TopicService";
 
 export default {
   name: "create-topic",
@@ -24,7 +24,31 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    saveTopic() {
+      TopicService.createTopic(this.topic)
+            .then(() => {
+                
+                
+                const route = {
+                    name: "Home"
+              
+                };
+
+                this.$router.push(route);
+
+            })
+            .catch((error) => {
+                if(error.response) {
+                    //We found the server and got a response back
+                    alert("Something went wrong: " + error.response.statusText);
+                } else if(error.request){
+                    //We could not reach the server
+                    alert("We could not reach the server");
+                } else {
+                    alert("Something went horribly wrong");
+                }
+            })
+    }
   }
 };
 </script>

@@ -8,6 +8,23 @@ export default {
 
   get(id) {
     return http.get(`/messages/${id}`);
+  },
+
+  createMessage(message) {
+
+      const url = "messages";
+      return http.post(url, message);
+
+  },
+  
+  updateMessage(message){
+      const url = "messages/" + message.id;
+      return http.put(url, message);
+  },
+
+  deleteMessage(id){
+      const url = "messages/"+id;
+      return http.delete(url)
   }
 
 }

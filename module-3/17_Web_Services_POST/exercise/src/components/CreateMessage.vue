@@ -32,7 +32,34 @@ export default {
   },
   methods: {
     saveMessage() {
+      messageService.createMessage(this.message)
+            .then((response) => {
+                
+                
+                const id = response.data.topicId;
+                const route = {
+                    name: "Messages",
+                    params: {
+                        id: id,
+                        
+                    }
+              
+                };
 
+                this.$router.push(route);
+
+            })
+            .catch((error) => {
+                if(error.response) {
+                    //We found the server and got a response back
+                    alert("Something went wrong: " + error.response.statusText);
+                } else if(error.request){
+                    //We could not reach the server
+                    alert("We could not reach the server");
+                } else {
+                    alert("Something went horribly wrong");
+                }
+            })
     }
   }
 };

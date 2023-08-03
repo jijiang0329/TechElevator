@@ -16,6 +16,10 @@ export default {
     getHotel(id){
         const url = "hotels/" + id;
         return http.get(url);
+    },
+    createReservation(reservation) {
+        const url = "reservations";
+        return http.post(url, reservation);
     }
 
 }

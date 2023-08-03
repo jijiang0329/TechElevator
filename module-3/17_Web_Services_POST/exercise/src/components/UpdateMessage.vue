@@ -35,6 +35,25 @@ export default {
         messageText: this.messageText
       };
       // call update in message service
+      messageService.updateMessage(message)
+      .then((response) => {
+                
+                
+                const topicID = response.data.topicId;
+                //const id = response.data.id;
+                const route = {
+                    name: "Messages",
+                    params: {
+                        id: topicID,
+                        
+                        
+                    }
+              
+                };
+
+                this.$router.push(route);
+
+            })
     }
   },
   created() {
